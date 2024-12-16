@@ -2,7 +2,7 @@ package com.example.shoppinglist.domain
 
 import com.example.shoppinglist.data.ShopItem
 
-interface ShopItemUseCase{
+interface ShopListRepository {
 
     fun deleteItem(id: Int)
 
@@ -11,4 +11,6 @@ interface ShopItemUseCase{
     fun editItem(id:Int)
 
     fun getItem(id:Int): ShopItem
+
+    fun getHashMapShopList(): HashMap<Int, ShopItem>
 }
