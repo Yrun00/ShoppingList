@@ -6,7 +6,7 @@ interface ShopItemInteractor{
 
     fun deleteItem(id: Int)
 
-    fun addItem(id:Int, name:String, count:Int, enabled:Boolean = false)
+    fun addItem(name:String, count:Int, enabled:Boolean = false)
 
     fun editItem(id:Int)
 
@@ -14,15 +14,15 @@ interface ShopItemInteractor{
 
     class Base(private val repository: ShopListRepository):ShopItemInteractor{
         override fun deleteItem(id: Int) {
-            repository.deleteItem(id)
+            repository.deleteItem(getItem(id))
         }
 
-        override fun addItem(id: Int, name: String, count: Int, enabled: Boolean) {
-            repository.addItem(id,name,count,enabled)
+        override fun addItem( name: String, count: Int, enabled: Boolean) {
+            repository.addItem(ShopItem(name=name,count=count,enabled=enabled))
         }
 
         override fun editItem(id: Int) {
-            repository.editItem(id)
+            repository.editItem(getItem(id))
         }
 
         override fun getItem(id: Int): ShopItem {

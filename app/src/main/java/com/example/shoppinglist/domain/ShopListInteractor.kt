@@ -5,11 +5,12 @@ import com.example.shoppinglist.data.ShopItem
 
 interface ShopListInteractor {
 
-    fun getHashMapShopList(): HashMap<Int, ShopItem>
-    
-    class Base(private val repository: ShopListRepository): ShopListInteractor {
-        override fun getHashMapShopList(): HashMap<Int, ShopItem> {
-            return repository.getHashMapShopList()
+    fun getShopList(): List<ShopItem>
+
+    class Base(private val repository: ShopListRepository) : ShopListInteractor {
+        override fun getShopList(): List<ShopItem> {
+            return repository.getShopList()
+
         }
     }
 }
