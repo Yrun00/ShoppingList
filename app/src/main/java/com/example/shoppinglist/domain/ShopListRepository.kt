@@ -4,13 +4,13 @@ import com.example.shoppinglist.data.ShopItem
 
 interface ShopListRepository {
 
-    fun deleteItem(id: Int)
+    fun deleteItem(item: ShopItem)
 
-    fun addItem(id:Int, name:String, count:Int, enabled:Boolean = false)
+    fun addItem(item: ShopItem)
 
-    fun editItem(id:Int)
+    fun editItem(item: ShopItem)
 
     fun getItem(id:Int): ShopItem
 
-    fun getHashMapShopList(): HashMap<Int, ShopItem>
+    fun getShopList(): List<ShopItem>
 }
